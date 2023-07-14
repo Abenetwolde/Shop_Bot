@@ -24,7 +24,10 @@ module.exports = {
                 }
             }
 
-            if (update) {           // Update clean up state to prevent deletion errors
+            if (update) {   
+                //if the update argument is truthy, it will update the cleanUpState property of ctx.session 
+                //by filtering out any messages whose type is not included in the condition array.
+                        // Update clean up state to prevent deletion errors
                 ctx.session.cleanUpState = _.filter(ctx.session.cleanUpState, function (message) {
                     if (!condition.includes(message.type)) {
                         return message
@@ -37,6 +40,8 @@ module.exports = {
         if (ctx.session.cleanUpState && ctx.session.cleanUpState.length !== 0) {
             ctx.session.cleanUpState = _.concat(ctx.session.cleanUpState, data)
         } else {
+            /* it will set the cleanUpState property to 
+            an array containing an object with the ID and type properties from the data argument. */
             ctx.session.cleanUpState = [{
                 id: data.id,
                 type: data.type
