@@ -35,7 +35,7 @@ cartScene.enter(async (ctx) => {
 })
 
 cartScene.hears("🏠 Back to Home", async (ctx) => {
-    Utils.updateUserMessageInState(ctx, ctx.message)
+    Utils.updateUserMessageInState(ctx, ctx.message) /* {user} */
     Utils.cleanUpMessage(ctx, true, ["cart"], true)
     ctx.scene.enter("WELCOME_SCENE")
 })
@@ -62,7 +62,7 @@ cartScene.hears("💳 Proceed to Payment", async (ctx) => {
         ctx.scene.enter("DATE_SCENE", {     // Pass down cart message into other scene for editing
             voucher: ctx.session.cart.voucher,
             cartMessage: {
-                id: Utils.getCartMessageByID(ctx),
+                id: Utils.getCartMessageByID(ctx),//pass cart message from sesstion
                 type: "cart"
             },
         })
