@@ -25,8 +25,8 @@ const cartScene = new Scenes.BaseScene("CART_SCENE")
 cartScene.enter(async (ctx) => {
     Utils.initializeScene(ctx)
     await Utils.sendWelcomeMessage(ctx, Template.cartWelcomeMessage(), Template.cartMenuButtons())/* ⭐ Apply Voucher Code"],Proceed to Payment Back to Home */
-    const [message, isEmpty] = await Cart.sendOverallCartMessage(ctx)
-    Utils.updateCleanUpState(ctx, { id: message.message_id, type: "cart" })
+    const [message, isEmpty] = await Cart.sendOverallCartMessage(ctx)//send the cart message
+    Utils.updateCleanUpState(ctx, { id: message.message_id, type: "cart" })//update in the state
 
     ctx.session.cart = {
         isEmpty: isEmpty,

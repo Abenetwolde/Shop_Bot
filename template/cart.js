@@ -1,9 +1,10 @@
 const { Markup } = require("telegraf")
 const numeral = require('numeral')
 const _ = require("lodash")
-
+const showButton = false;
 
 module.exports = {
+    
     indivCartMessage: function (cart) {
         var message = "🛒 Your cart contains the following products:\n\n"
         var totalCost = 0
@@ -79,7 +80,7 @@ Have a voucher code to apply? If not, proceed to checkout.
         const extra = Markup
             .keyboard([
                 ["⭐ Apply Voucher Code"],
-                ["💳 Proceed to Payment"],
+               ["💳 Proceed to Payment"],
                 ["🏠 Back to Home"]
             ])
             .resize()
