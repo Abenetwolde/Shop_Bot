@@ -32,7 +32,7 @@ paymentScene.enter(async (ctx) => {
         start_parameter: "get_access",
         title: `Invoice (${moment().format("HH:mm A, DD/MM/YYYY")})`,
         description: `Your total order amounts to ${numeral(totalCost / 100).format("$0,0.00")}.`,
-        currency: "SGD",
+        currency: "ETB",
         prices: priceLabels,
         payload: {
             id: ctx.from.id,

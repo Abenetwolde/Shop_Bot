@@ -80,7 +80,7 @@ Have a voucher code to apply? If not, proceed to checkout.
         const extra = Markup
             .keyboard([
                 ["⭐ Apply Voucher Code"],
-               ["💳 Proceed to Payment"],
+                !showButton?  ["💳 Proceed to Payment"]:[],
                 ["🏠 Back to Home"]
             ])
             .resize()
